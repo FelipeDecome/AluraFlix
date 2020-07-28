@@ -14,7 +14,7 @@ const Menu = () => {
       <Link to="/">
         <LogoWrapper className="Logo" src={Logo} alt="CornFlix Logo" />
       </Link>
-      <Button as={Link} to="cadastro/video" className="ButtonLink">
+      <Button as={Link} to="/cadastro/video" className="ButtonLink">
         Novo Vídeo
       </Button>
     </Navbar>
