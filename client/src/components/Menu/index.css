@@ -35,6 +35,7 @@ body {
     height: 40px;
     justify-content: center;
   }
+
   body {
     --bodyPaddingTop: 40px;
     padding-top: var(--bodyPaddingTop);
