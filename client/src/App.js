@@ -20,15 +20,15 @@ const App = () => {
 
       <Carousel ignoreFirstVideo category={dados.categorias[0]} />
 
-      <Carousel ignoreFirstVideo category={dados.categorias[1]} />
+      <Carousel category={dados.categorias[1]} />
 
-      <Carousel ignoreFirstVideo category={dados.categorias[2]} />
+      <Carousel category={dados.categorias[2]} />
 
-      <Carousel ignoreFirstVideo category={dados.categorias[3]} />
+      <Carousel category={dados.categorias[3]} />
 
-      <Carousel ignoreFirstVideo category={dados.categorias[4]} />
+      <Carousel category={dados.categorias[4]} />
 
-      <Carousel ignoreFirstVideo category={dados.categorias[5]} />
+      <Carousel category={dados.categorias[5]} />
 
       <Footer />
     </div>
