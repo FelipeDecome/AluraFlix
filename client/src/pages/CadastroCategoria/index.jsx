@@ -1,13 +1,14 @@
-import React, { useState } from "react";
-import PageDefault from "../../components/PageDefault";
-import { Link } from "react-router-dom";
-import FormField from "../../components/FormField";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import PageDefault from '../../components/PageDefault';
+import FormField from '../../components/FormField';
+import Button from '../../components/Button';
 
 const CadastroCategoria = () => {
   const valorInicial = {
-    nome: "",
-    descricao: "",
-    cor: "#000",
+    nome: '',
+    descricao: '',
+    cor: '#000',
   };
   const [categorias, setCategorias] = useState([]);
 
@@ -34,9 +35,20 @@ const CadastroCategoria = () => {
     setCategorias(parsedCategorias);
   }
 
+  useEffect(() => {
+    const URL = 'http://localhost:8080/categorias';
+    fetch(URL).then(async (res) => {
+      const parsed = await res.json();
+      setCategorias([...parsed]);
+    });
+  }, []);
+
   return (
     <PageDefault>
-      <h1>Cadastro de Categoria: {formValues.nome}</h1>
+      <h1>
+        Cadastro de Categoria:
+        {formValues.nome}
+      </h1>
 
       <form onSubmit={handleSubmit}>
         <FormField
@@ -49,7 +61,7 @@ const CadastroCategoria = () => {
 
         <FormField
           label="Descrição"
-          type="text"
+          type="textarea"
           name="descricao"
           value={formValues.descricao}
           onChange={handleChangeInputs}
@@ -63,13 +75,15 @@ const CadastroCategoria = () => {
           onChange={handleChangeInputs}
         />
 
-        <button>Cadastrar</button>
+        <Button type="submit">Cadastrar</Button>
       </form>
 
+      {categorias.length === 0 && <div> Loading... </div>}
+
       <ul>
-        {categorias.map((categoria, index) => {
-          return <li key={index}>{categoria.nome}</li>;
-        })}
+        {categorias.map((categoria) => (
+          <li key={categoria.nome}>{categoria.nome}</li>
+        ))}
       </ul>
 
       <Link to="/">Ir pra Home</Link>
