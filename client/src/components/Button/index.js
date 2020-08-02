@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 const Button = styled.button`
-  color: var(--white);
-  background-color: var(--black);
-  border: 1px solid var(--white);
+  color: var(--secondary);
+  background-color: var(--white);
+  border: 3px solid var(--secondary);
   box-sizing: border-box;
   cursor: pointer;
   padding: 16px 24px;
@@ -14,12 +14,18 @@ const Button = styled.button`
   border-radius: 5px;
   text-decoration: none;
   display: inline-block;
-  transition: opacity 0.3s;
+  transition: all 0.3s;
 
   &:hover,
   &:focus {
-    opacity: 0.5;
+    background-color: var(--secondary);
+    color: var(--white);
   }
+`;
+
+Button.Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 export default Button;

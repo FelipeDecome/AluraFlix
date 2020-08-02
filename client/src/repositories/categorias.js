@@ -41,8 +41,22 @@ function create(categoryObject) {
   });
 }
 
+function remove(categoryId) {
+  return fetch(`${URL_CATEGORIAS}/${categoryId}`, {
+    method: 'DELETE',
+  }).then(async (res) => {
+    if (res.ok) {
+      const response = await res.json();
+      return response;
+    }
+
+    throw new Error('Não foi possível remover a nova categoria!');
+  });
+}
+
 export default {
   getAll,
   getAllWithVideos,
   create,
+  remove,
 };

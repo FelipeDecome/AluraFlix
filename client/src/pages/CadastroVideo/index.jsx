@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import PageDefault from '../../components/PageDefault';
+import Form from '../../components/Form';
 import FormField from '../../components/FormField';
 import Button from '../../components/Button';
 import videosRepository from '../../repositories/videos';
@@ -46,9 +47,9 @@ const CadastroVideo = () => {
 
   return (
     <PageDefault>
-      <h1>Cadastro de Video: {formValues.titulo}</h1>
+      <Form onSubmit={handleSubmit}>
+        <Form.Title>Cadastro de Video: {formValues.titulo}</Form.Title>
 
-      <form onSubmit={handleSubmit}>
         <FormField
           label="Título do Vídeo"
           type="text"
@@ -74,10 +75,13 @@ const CadastroVideo = () => {
           suggestions={categoriesTitles}
         />
 
-        <Button type="submit">Cadastrar</Button>
-      </form>
-
-      <Link to="/cadastro/categoria">Cadastrar Categoria</Link>
+        <Button.Wrapper>
+          <Button type="submit">Cadastrar</Button>
+          <Button as={Link} to="/cadastro/categoria">
+            Cadastrar Categoria
+          </Button>
+        </Button.Wrapper>
+      </Form>
     </PageDefault>
   );
 };

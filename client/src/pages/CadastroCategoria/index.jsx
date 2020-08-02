@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PageDefault from '../../components/PageDefault';
+import Form from '../../components/Form';
 import FormField from '../../components/FormField';
 import Button from '../../components/Button';
 import categoriaRepository from '../../repositories/categorias';
@@ -11,7 +12,7 @@ const CadastroCategoria = () => {
   const valorInicial = {
     titulo: '',
     descricao: '',
-    cor: '#000000',
+    cor: '#6340ff',
   };
   const { handleChangeInputs, formValues, clearForm } = useForm(valorInicial);
 
@@ -34,12 +35,8 @@ const CadastroCategoria = () => {
 
   return (
     <PageDefault>
-      <h1>
-        Cadastro de Categoria:
-        {formValues.titulo}
-      </h1>
-
-      <form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
+        <Form.Title>Cadastro de Categoria: {formValues.titulo}</Form.Title>
         <FormField
           label="Titulo da Categoria"
           type="text"
@@ -64,8 +61,14 @@ const CadastroCategoria = () => {
           onChange={handleChangeInputs}
         />
 
-        <Button type="submit">Cadastrar</Button>
-      </form>
+        <Button.Wrapper>
+          <Button type="submit">Cadastrar</Button>
+
+          <Button as={Link} to="/">
+            Ir pra Home
+          </Button>
+        </Button.Wrapper>
+      </Form>
 
       {categorias.length === 0 && <div> Loading... </div>}
 
@@ -74,8 +77,6 @@ const CadastroCategoria = () => {
           <li key={categoria.id}>{categoria.titulo}</li>
         ))}
       </ul>
-
-      <Link to="/">Ir pra Home</Link>
     </PageDefault>
   );
 };

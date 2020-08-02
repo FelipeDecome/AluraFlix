@@ -1,18 +1,17 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Logo from "./../../assets/images/logo.png";
-import "./index.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Logo from './../../assets/images/logo.png';
 
-import Button from "./../Button";
+import Button from './../Button';
 
-import Navbar from "./components/Navbar";
-import LogoWrapper from "./components/LogoWrapper";
+import Navbar from './components/Navbar';
+import LogoWrapper from './components/LogoWrapper';
 
 const Menu = () => {
   return (
-    <Navbar className="Menu">
+    <Navbar>
       <Link to="/">
-        <LogoWrapper className="Logo" src={Logo} alt="CornFlix Logo" />
+        <LogoWrapper src={Logo} alt="CornFlix Logo" />
       </Link>
       <Button as={Link} to="/cadastro/video" className="ButtonLink">
         Novo Vídeo

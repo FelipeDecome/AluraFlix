@@ -4,13 +4,17 @@ import Menu from '../Menu';
 import Footer from '../Footer';
 
 const Main = styled.main`
-  background-color: var(--black);
-  color: var(--white);
-  flex: 1;
+  background-color: var(--white);
+  flex-grow: 1;
 
-  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding-top: 94px;
   padding-left: 5%;
   padding-right: 5%;
+  margin-bottom: 60px;
   ${({ paddingAll }) => css`
     padding: ${paddingAll};
   `}

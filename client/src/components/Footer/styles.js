@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export const FooterBase = styled.footer`
   background: var(--black);
   border-top: 2px solid var(--primary);
@@ -12,5 +11,14 @@ export const FooterBase = styled.footer`
   text-align: center;
   @media (max-width: 800px) {
     margin-bottom: 50px;
+  }
+
+  & a {
+    color: var(--primary);
+    font-weight: bold;
+
+    img {
+      max-width: 168px;
+    }
   }
 `;
