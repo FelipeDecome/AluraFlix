@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Button from '../Button';
 
 export const ContentAreaContainer = styled.section`
   margin-left: 5%;
@@ -9,10 +10,6 @@ export const ContentAreaContainer = styled.section`
   justify-content: center;
   position: relative;
   z-index: 10;
-
-  & * {
-    color: var(--white) !important;
-  }
 
   @media (max-width: 800px) {
     padding-top: 100px;
@@ -105,25 +102,17 @@ export const BannerMainContainer = styled.section`
   }
 `;
 
-export const WatchButton = styled.button`
-  font-family: 'Roboto', sans-serif;
-  box-sizing: border-box;
-  cursor: pointer;
-  padding: 16px 24px;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
-  outline: none;
-  border-radius: 5px;
-  text-decoration: none;
-  display: inline-block;
-  border: 1px solid transparent;
-  color: var(--black);
-  background: var(--white);
-  border-color: var(--black);
-  transition: opacity 0.3s;
+export const WatchButton = styled(Button)`
+  background-color: transparent;
+  border-color: var(--primary);
+  color: var(--white);
   display: none;
   margin: 0 auto;
+
+  &:hover {
+    background-color: var(--primary);
+  }
+
   @media (max-width: 800px) {
     display: block;
   }
