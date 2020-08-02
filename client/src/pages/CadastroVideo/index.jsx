@@ -13,9 +13,9 @@ const CadastroVideo = () => {
   const categoriesTitles = categorias.map(({ titulo }) => titulo);
 
   const { formValues, handleChangeInputs } = useForm({
-    titulo: 'Como Converter Callbacks em Promises em Javascript',
-    url: 'https://www.youtube.com/watch?v=_gmXKsVS40s',
-    categoria: 'Front End',
+    titulo: '',
+    url: '',
+    categoria: '',
   });
 
   const history = useHistory();
